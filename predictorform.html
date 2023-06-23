@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Upload Image</h2>
+<input type="file" id="file" name="file" accept="image/*">
+<button onclick="upload()">Upload</button>
+
+<script>
+async function upload() {
+  const fileInput = document.querySelector('#file');
+  const formData = new FormData();
+  formData.append('file', fileInput.files[0]);
+
+  const response = await fetch('https://bff3-73-93-85-15.ngrok.io', {
+    method: 'POST',
+    body: formData,
+  });
+
+  const result = await response.text();
+
+  // Display the result in an alert
+  alert(result);
+}
+</script>
+
+</body>
+</html>
