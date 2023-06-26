@@ -4,7 +4,7 @@
   <style>
     body {
       background-color: lightblue;
-      color: pink;
+      color: lime;
     }
   </style>
 </head>
@@ -27,7 +27,6 @@
 
       const result = await response.json();
 
-      consologe.log(result)
 
       // Redirect to resultsform.html with the result
       window.location.href = `/resultsform.html?predicted_object=${result.predicted_object}`;
