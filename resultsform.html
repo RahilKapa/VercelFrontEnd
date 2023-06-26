@@ -11,7 +11,18 @@
 </head>
 <body>
     <h2>Prediction Results</h2>
-    <p>The model predicted: {{ predicted_object }}</p>
+    <p>The model predicted: <span id="predictedObject"></span></p>
     <a href="/">Try again</a>
+
+    <script>
+      // Retrieve the predicted_object from the URL
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const predictedObject = urlParams.get('predicted_object');
+
+      // Update the content with the predicted_object
+      const predictedObjectElement = document.querySelector('#predictedObject');
+      predictedObjectElement.textContent = predictedObject;
+    </script>
 </body>
 </html>
