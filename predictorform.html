@@ -4,7 +4,7 @@
   <style>
     body {
       background-color: lightblue;
-      color: black;
+      color: white;
     }
   </style>
 </head>
@@ -20,7 +20,7 @@
       const formData = new FormData();
       formData.append('file', fileInput.files[0]);
 
-      const response = await fetch('/api/results', {
+      const response = await fetch('https://38a8-73-93-85-15.ngrok.io/results', {
         method: 'POST',
         body: formData,
       });
