@@ -7,22 +7,54 @@
             color: white;
             font-family: Arial, sans-serif;
         }
+        
+        .image-container {
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            text-align: center;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 200px;
+        }
     </style>
 </head>
 <body>
     <h2>Prediction Results</h2>
     <p>The model predicted: <span id="predictedObject"></span></p>
+    <div class="image-container">
+        <img id="uploadedImage" src="#" alt="Uploaded Image">
+    </div>
     <a href="/">Try again</a>
 
     <script>
-      // Retrieve the predicted_object from the URL
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const predictedObject = urlParams.get('predicted_object');
+        // Retrieve the predicted_object from the URL
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const predictedObject = urlParams.get('predicted_object');
 
-      // Update the content with the predicted_object
-      const predictedObjectElement = document.querySelector('#predictedObject');
-      predictedObjectElement.textContent = predictedObject;
+        // Update the content with the predicted_object
+        const predictedObjectElement = document.querySelector('#predictedObject');
+        predictedObjectElement.textContent = predictedObject;
+
+        // Get the file input element from the previous page
+        const fileInput = window.opener.document.querySelector('#file');
+
+        // Read the uploaded file as a data URL
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const imageUrl = event.target.result;
+            // Set the src attribute of the uploadedImage to display the uploaded image
+            const uploadedImageElement = document.querySelector('#uploadedImage');
+            uploadedImageElement.src = imageUrl;
+        };
+        reader.readAsDataURL(fileInput.files[0]);
     </script>
 </body>
 </html>
