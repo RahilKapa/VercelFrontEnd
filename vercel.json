@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/predictorform.html" },
+    { "source": "/", "destination": "/index.html" },
     { "source": "/:path*", "destination": "/:path*" }
   ]
 }
