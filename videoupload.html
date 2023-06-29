@@ -18,12 +18,11 @@
     <source id="videoSource">
   </video>
 
-  <p>The model predicted: <span id="predictedObject"></span></p>
+  <p id="predictionsContainer"></p>
 
   <script>
-    let frameIndex = 0;
     const videoElement = document.querySelector('#uploadedVideo');
-    const predictedObjectElement = document.querySelector('#predictedObject');
+    const predictionsContainer = document.querySelector('#predictionsContainer');
 
     async function uploadVideo() {
       const fileInput = document.querySelector('#video');
@@ -33,35 +32,29 @@
       videoElement.src = URL.createObjectURL(fileInput.files[0]);
       videoElement.load();
 
-      videoElement.onloadeddata = () => {
+      videoElement.onloadeddata = async () => {
+        // Send the video file to the back end for processing
+        const response = await fetch('ngrokapiurl/video_results', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        // Store the predictions in a map where the keys are the frame numbers
+        const predictions = new Map(result.predictions.map(p => [p.frame, p.predicted_object]));
+
+        // Start playing the video
         videoElement.play();
-      }
 
-      videoElement.ontimeupdate = () => {
-        if (frameIndex % 10 === 0) {
-          predictFrame();
+        // Update the displayed prediction for each frame
+        videoElement.ontimeupdate = () => {
+          const frame = Math.floor(videoElement.currentTime * videoElement.playbackRate);
+          if (predictions.has(frame)) {
+            predictionsContainer.textContent = `Frame ${frame}: ${predictions.get(frame)}`;
+          }
         }
-        frameIndex++;
       }
-    }
-
-    async function predictFrame() {
-      // Here you should extract the current frame from the video and send it to the backend.
-      // Note: extracting frames from a video in the browser is a complex task that depends on your specific use case and the capabilities of your backend. 
-      // It might involve capturing a screenshot of the video, converting it to a suitable format, and then sending it as a file in a FormData object, similar to how the image is uploaded.
-
-      // Here's a simplified mock implementation for demonstration purposes.
-      let frameData = new FormData();
-      frameData.append('frame', 'frame data');
-
-      const response = await fetch('ngrokapiurl/results', {
-        method: 'POST',
-        body: frameData,
-      });
-
-      const result = await response.json();
-
-      predictedObjectElement.textContent = result.predicted_object;
     }
   </script>
 
