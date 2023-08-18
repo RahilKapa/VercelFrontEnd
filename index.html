@@ -4,7 +4,7 @@
   <title>Masada AI</title>
   <style>
     body {
-      background: linear-gradient(to bottom, #e6f7ff, #b3e0ff);
+      background: linear-gradient(to bottom, #e6f7ff, #404040); /* Adjusted background gradient */
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
@@ -12,17 +12,18 @@
     }
 
     .header {
-      background: linear-gradient(to bottom, black, grey);
+      background: linear-gradient(to bottom, black, #404040);
       padding: 20px 0;
       display: flex;
-      justify-content: space-between; /* Aligns items to the start and end of the container */
-      align-items: center; /* Aligns items vertically */
+      justify-content: space-between;
+      align-items: center;
     }
 
     .header h1 {
       color: white;
       margin: 0;
       font-size: 2.5em;
+      margin-right: 10px;
     }
 
     .title-section {
@@ -31,14 +32,15 @@
     }
 
     .demo-button {
-      background-color: #001f3f; /* Adjusted background color */
+      background-color: #001f3f;
       border: none;
-      border-radius: 20px; /* Rounded corners */
+      border-radius: 20px;
       color: white;
-      padding: 10px 20px; /* Adjusted padding */
+      padding: 10px 20px;
       font-size: 16px;
       transition-duration: 0.4s;
       cursor: pointer;
+      outline: none;
     }
 
     .demo-button:hover {
