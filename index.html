@@ -45,14 +45,14 @@
 
     .accuracy-matrix {
       margin-top: 20px;
-      background-color: #f2f2f2; /* Added background color to the accuracy matrix */
-      padding: 20px;
-      border-radius: 10px;
     }
 
     table {
       border-collapse: collapse;
-      width: 100%;
+      width: 50%;
+      margin: 0 auto;
+      background-color: #f2f2f2; /* Grey background for the entire table */
+      border-radius: 10px; /* Rounded corners for the table */
     }
 
     th, td {
@@ -64,6 +64,11 @@
 
     th {
       background-color: #404040;
+      color: white;
+    }
+
+    .metrics-row td {
+      background-color: #808080; /* Grey background for the metrics row */
       color: white;
     }
 
@@ -109,13 +114,12 @@
 
   <div class="accuracy-matrix">
     <h3>Accuracy Matrix</h3>
-    <p>After going through our two-factor authentication system of both RAM and one-shot Grounding DINO.</p>
     <table>
       <tr>
+        <th></th>
         <th>Metrics</th>
-        <th>Value</th>
       </tr>
-      <tr>
+      <tr class="metrics-row">
         <td>True Negative</td>
         <td>100</td>
       </tr>
@@ -123,7 +127,7 @@
         <td>False Positive</td>
         <td>0</td>
       </tr>
-      <tr>
+      <tr class="metrics-row">
         <td>False Negative</td>
         <td>5</td>
       </tr>
