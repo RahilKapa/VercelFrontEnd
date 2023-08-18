@@ -30,9 +30,9 @@
 
     .logo {
       margin-left: 20px;
-      width: auto; /* Adjusted width to maintain aspect ratio */
-      height: 40px; /* Fixed height */
-      border-radius: 10px; /* Rounded corners for the logo */
+      width: auto;
+      height: 40px;
+      border-radius: 10px;
     }
 
     button.demo-button {
@@ -59,13 +59,13 @@
       border-collapse: collapse;
       width: 40%;
       margin: 0 auto;
-      background-color: #f2f2f2; /* Grey background for the entire table */
-      border-radius: 10px; /* Rounded corners for the table */
+      background-color: #f2f2f2;
+      border-radius: 10px;
     }
 
     th, td {
-      border: 1px solid #d0d0d0; /* Softer table lines */
-      padding: 5px; /* Reduced padding for cells */
+      border: 1px solid #d0d0d0;
+      padding: 5px;
       text-align: center;
     }
 
@@ -75,7 +75,7 @@
     }
 
     .true-cell, .false-cell {
-      border-radius: 10px; /* Rounded corners for cells */
+      border-radius: 10px;
     }
 
     .true-cell {
@@ -83,7 +83,7 @@
     }
 
     .false-cell {
-      background-color: #808080; /* Grey background for false cells */
+      background-color: #808080;
       color: white;
     }
 
@@ -119,13 +119,28 @@
       color: black;
     }
 
+    .about-us {
+      margin-top: 30px;
+      text-align: left;
+      padding: 20px;
+      border: 1px solid #d0d0d0;
+      border-radius: 10px;
+      background-color: white;
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <img src="logo.png" alt="Masada AI Logo" class="logo"> <!-- Replace with your actual logo -->
+    <img src="logo.png" alt="Masada AI Logo" class="logo">
     <h1>Masada AI</h1>
     <button class="demo-button" onclick="window.location.href='/videoupload.html'">Demo</button>
+  </div>
+
+  <div class="about-us">
+    <h3>About Us</h3>
+    <p>
+      At Masada AI, we are dedicated to saving lives through cutting-edge technology. Our innovative approach involves using RAM (Real-time Automated Monitoring) to analyze images and detect potential threats, such as firearms. Once a potential threat is identified, our advanced Grounding Dino technology comes into play. Grounding Dino locates the position of the potential weapon and performs a double-check to ensure accuracy. This two-factor authentication process not only enhances precision but also provides a comprehensive solution to keep our communities safer.
+    </p>
   </div>
 
   <div class="accuracy-matrix">
@@ -162,14 +177,4 @@
       <div class="dropdown-content">
         <p></p>
       </div>
-    </div>
-
-    <div class="dropdown">
-      <span>Grants</span>
-      <div class="dropdown-content">
-        <p></p>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+    </div
