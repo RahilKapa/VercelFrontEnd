@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Masada AI</title>
   <style>
-    body {
-      background-color: lightblue;
-      color: wheat;
-      font-family: Arial, sans-serif;
+    /* Your existing styles here */
+
+    /* Additional styles for the "Upload Video" button */
+    .upload-button {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h2>Welcome!</h2>
-  <button onclick="window.location.href='/predictorform.html'">Upload Image</button>
-  <button onclick="window.location.href='/videoupload.html'">Upload Video</button>
+  <div class="header">
+    <h1>Masada AI</h1>
+  </div>
+  
+  <div class="hero-section">
+    <h2>React Faster, Stop Shootings!</h2>
+    <img class="hero-image" src="your_hero_image_url.jpg" alt="Hero Image">
+  </div>
+  
+  <div class="accuracy-matrix">
+    <h3>Accuracy Matrix</h3>
+    <div class="matrix-labels">
+      <div class="matrix-label">True Negative (100)</div>
+      <div class="matrix-label">False Positive (0)</div>
+      <div class="matrix-label">False Negative (5)</div>
+      <div class="matrix-label">True Positive (95)</div>
+    </div>
+  </div>
+  
+  <div class="navigation">
+    <a class="navigation-link" href="/customers.html">Customers</a>
+    <a class="navigation-link" href="/investors.html">Investors</a>
+    <a class="navigation-link" href="/grants.html">Grants</a>
+  </div>
+
+  <!-- Button to upload a video -->
+  <div class="upload-button">
+    <button onclick="window.location.href='/videoupload.html'">Upload Video</button>
+  </div>
 </body>
 </html>
