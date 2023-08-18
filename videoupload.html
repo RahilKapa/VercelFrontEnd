@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      background-color: lightblue;
-      color: white;
-    }
-  </style>
+    <title>Video Upload</title>
 </head>
 <body>
+    <h1>Upload a video to scan for guns</h1>
+    <form action="/video" method="post" enctype="multipart/form-data">
+        <input type="file" name="video">
+        <input type="submit" value="Upload">
+    </form>
+    <div id="predictions-container">
+    </div>
+    <script>
+        const predictionsContainer = document.getElementById('predictions-container');
+        const videoElement = document.querySelector('video');
+        let predictions = new Map();
 
-  <h2>Upload Video</h2>
-  <input type="file" id="video" name="video" accept="video/*">
-  <button onclick="uploadVideo()">Upload</button>
-
-  <video id="uploadedVideo" width="320" height="240" controls>
-    <source id="videoSource">
-  </video>
-
-  <p id="predictionsContainer"></p>
-
-  <script>
-    const videoElement = document.querySelector('#uploadedVideo');
-    const predictionsContainer = document.querySelector('#predictionsContainer');
-
-    async function uploadVideo() {
-      const fileInput = document.querySelector('#video');
-      const formData = new FormData();
-      formData.append('file', fileInput.files[0]);
-
-      videoElement.src = URL.createObjectURL(fileInput.files[0]);
-      videoElement.load();
-
-      videoElement.onloadeddata = async () => {
-        // Send the video file to the back end for processing
-        const response = await fetch('https://ed45-73-93-85-15.ngrok.io/video_results', {
-          method: 'POST',
-          body: formData,
-        });
-
-        const result = await response.json();
-
-        // Store the predictions in a map where the keys are the frame numbers
-        const predictions = new Map(result.predictions.map(p => [p.frame, p.predicted_object]));
-
-        // Start playing the video
-        videoElement.play();
-
-        // Update the displayed prediction for each frame
         videoElement.ontimeupdate = () => {
-          const frame = Math.floor(videoElement.currentTime * videoElement.playbackRate);
-          if (predictions.has(frame)) {
-            predictionsContainer.textContent = `Frame ${frame}: ${predictions.get(frame)}`;
-          }
-        }
-      }
-    }
-  </script>
+            const frame = Math.floor(videoElement.currentTime * videoElement.playbackRate);
+            if (predictions.has(frame)) {
+                predictionsContainer.textContent = `Frame ${frame}: ${predictions.get(frame).predicted_object}`;
 
+                if ('gun' in predictions.get(frame).predicted_object && gunFrameCounter < 5) {
+                    const boundingBox = predictions.get(frame).bounding_boxes[0];
+                    const imageElement = document.createElement('img');
+                    imageElement.src = predictions.get(frame).image_data_url;
+
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+
+                    imageElement.onload = function() {
+                        canvas.width = imageElement.width;
+                        canvas.height = imageElement.height;
+
+                        context.drawImage(imageElement, 0, 0);
+                        context.beginPath();
+                        context.rect(boundingBox[0], boundingBox[1], boundingBox[2] - boundingBox[0], boundingBox[3] - boundingBox[1]);
+                        context.lineWidth = 3;
+                        context.strokeStyle = 'red';
+                        context.stroke();
+
+                        predictionsContainer.appendChild(canvas);
+                    };
+
+                    gunFrameCounter++;
+                }
+            }
+        }
+
+        fetch('/frame_results', { method: 'POST', body: videoElement.currentTime })
+            .then(response => response.json())
+            .then(data => {
+                predictions.set(Math.floor(videoElement.currentTime * videoElement.playbackRate), data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    </script>
 </body>
 </html>
