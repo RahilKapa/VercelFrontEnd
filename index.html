@@ -5,7 +5,7 @@
     <title>Masada AI</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #e6f7ff, #ffffff); /* Adjusted body background gradient to light blue to almost white */
+            background: linear-gradient(to bottom, #e6f7ff, #ffffff); /* Only one gradient for the body */
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
@@ -13,7 +13,6 @@
         }
 
         .header {
-            background: linear-gradient(to bottom, black, #404040); /* Adjusted header background gradient */
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
@@ -21,13 +20,13 @@
         }
 
         .header h1 {
-            color: white;
+            color: black; /* Changed text color as the gradient is removed */
             margin: 0;
             font-size: 2.5em;
-            margin-left: 10px; /* Shifted the title to the right */
+            margin-left: 10px;
         }
 
-        .demo-button {
+        button.demo-button {
             background-color: #001f3f;
             border: none;
             border-radius: 20px;
@@ -38,17 +37,35 @@
             cursor: pointer;
         }
 
-        .demo-button:hover {
+        button.demo-button:hover {
             background-color: #003366;
+        }
+
+        .accuracy-matrix {
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
         }
 
         .navigation {
             margin: 30px 0;
+            display: flex;
+            flex-direction: column; /* Arranged items vertically */
+            align-items: center;
         }
 
         .dropdown {
-            display: inline-block;
-            margin: 0 10px;
+            margin: 10px 0;
             position: relative;
             cursor: pointer;
         }
@@ -78,19 +95,22 @@
 <body>
     <div class="header">
         <h1>Masada AI</h1>
-        <div class="demo-button">
-            <button onclick="window.location.href='/videoupload.html'">Demo</button>
-        </div>
+        <button class="demo-button" onclick="window.location.href='/videoupload.html'">Demo</button>
     </div>
 
     <div class="accuracy-matrix">
         <h3>Accuracy Matrix</h3>
-        <div class="matrix-labels">
-            <div class="matrix-label">True Negative (100)</div>
-            <div class="matrix-label">False Positive (0)</div>
-            <div class="matrix-label">False Negative (5)</div>
-            <div class="matrix-label">True Positive (95)</div>
-        </div>
+        <p>After going through our two-factor authentication system of both RAM and one-shot Grounding DINO.</p>
+        <table>
+            <tr>
+                <td>True Negative (100)</td>
+                <td>False Positive (0)</td>
+            </tr>
+            <tr>
+                <td>False Negative (5)</td>
+                <td>True Positive (95)</td>
+            </tr>
+        </table>
     </div>
 
     <div class="navigation">
@@ -98,7 +118,6 @@
             <span>Customers</span>
             <div class="dropdown-content">
                 <p></p>
-                <!-- Placeholder text for Customers -->
             </div>
         </div>
 
@@ -106,7 +125,6 @@
             <span>Investors</span>
             <div class="dropdown-content">
                 <p></p>
-                <!-- Placeholder text for Investors -->
             </div>
         </div>
 
@@ -114,7 +132,6 @@
             <span>Grants</span>
             <div class="dropdown-content">
                 <p></p>
-                <!-- Placeholder text for Grants -->
             </div>
         </div>
     </div>
