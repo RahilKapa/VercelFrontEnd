@@ -1,125 +1,123 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Masada AI</title>
-  <style>
-    body {
-      background: linear-gradient(to bottom, #e6f7ff, #404040); /* Adjusted background gradient */
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
+    <title>Masada AI</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e6f7ff, #ffffff); /* Adjusted body background gradient to light blue to almost white */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
 
-    .header {
-      background: linear-gradient(to bottom, black, #404040);
-      padding: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .header {
+            background: linear-gradient(to bottom, black, #404040); /* Adjusted header background gradient */
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .header h1 {
-      color: white;
-      margin: 0;
-      font-size: 2.5em;
-      margin-right: 10px;
-    }
+        .header h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.5em;
+            margin-left: 10px; /* Shifted the title to the right */
+        }
 
-    .title-section {
-      display: flex;
-      align-items: center;
-    }
+        .demo-button {
+            background-color: #001f3f;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
 
-    .demo-button {
-      background-color: #001f3f;
-      border: none;
-      border-radius: 20px;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      outline: none;
-    }
+        .demo-button:hover {
+            background-color: #003366;
+        }
 
-    .demo-button:hover {
-      background-color: #003366;
-    }
+        .navigation {
+            margin: 30px 0;
+        }
 
-    .navigation {
-      margin: 30px 0;
-    }
+        .dropdown {
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+            cursor: pointer;
+        }
 
-    .dropdown {
-      display: inline-block;
-      margin: 0 10px;
-      position: relative;
-      cursor: pointer;
-    }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            text-align: left;
+        }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 150px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-      text-align: left;
-    }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+        .dropdown-content p {
+            margin: 10px;
+            color: black;
+        }
 
-    .dropdown-content p {
-      margin: 10px;
-      color: black;
-    }
-
-  </style>
+    </style>
 </head>
+
 <body>
-  <div class="header">
-    <div class="title-section">
-      <h1>Masada AI</h1>
-    </div>
-    <div class="demo-button">
-      <button onclick="window.location.href='/videoupload.html'">Demo</button>
-    </div>
-  </div>
-
-  <div class="accuracy-matrix">
-    <h3>Accuracy Matrix</h3>
-    <div class="matrix-labels">
-      <div class="matrix-label">True Negative (100)</div>
-      <div class="matrix-label">False Positive (0)</div>
-      <div class="matrix-label">False Negative (5)</div>
-      <div class="matrix-label">True Positive (95)</div>
-    </div>
-  </div>
-
-  <div class="navigation">
-    <div class="dropdown">
-      <span>Customers</span>
-      <div class="dropdown-content">
-        <p></p> <!-- Placeholder text for Customers -->
-      </div>
+    <div class="header">
+        <h1>Masada AI</h1>
+        <div class="demo-button">
+            <button onclick="window.location.href='/videoupload.html'">Demo</button>
+        </div>
     </div>
 
-    <div class="dropdown">
-      <span>Investors</span>
-      <div class="dropdown-content">
-        <p></p> <!-- Placeholder text for Investors -->
-      </div>
+    <div class="accuracy-matrix">
+        <h3>Accuracy Matrix</h3>
+        <div class="matrix-labels">
+            <div class="matrix-label">True Negative (100)</div>
+            <div class="matrix-label">False Positive (0)</div>
+            <div class="matrix-label">False Negative (5)</div>
+            <div class="matrix-label">True Positive (95)</div>
+        </div>
     </div>
 
-    <div class="dropdown">
-      <span>Grants</span>
-      <div class="dropdown-content">
-        <p></p> <!-- Placeholder text for Grants -->
-      </div>
+    <div class="navigation">
+        <div class="dropdown">
+            <span>Customers</span>
+            <div class="dropdown-content">
+                <p></p>
+                <!-- Placeholder text for Customers -->
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <span>Investors</span>
+            <div class="dropdown-content">
+                <p></p>
+                <!-- Placeholder text for Investors -->
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <span>Grants</span>
+            <div class="dropdown-content">
+                <p></p>
+                <!-- Placeholder text for Grants -->
+            </div>
+        </div>
     </div>
-  </div>
 </body>
+
 </html>
