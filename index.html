@@ -3,24 +3,93 @@
 <head>
   <title>Masada AI</title>
   <style>
-    /* Your existing styles here */
+    body {
+      background-color: lightblue;
+      font-family: Arial, sans-serif; /* You can replace with any preferred font-family */
+      text-align: center; /* Center most of the content */
+    }
 
-    /* Additional styles for the "Upload Video" button */
-    .upload-button {
+    .header {
+      background-color: darkblue;
+      padding: 20px 0;
+    }
+
+    .header h1 {
+      color: white;
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .accuracy-matrix {
       margin-top: 20px;
     }
+
+    .matrix-labels .matrix-label {
+      margin: 10px 0;
+    }
+
+    /* Dropdown navigation styles */
+    .navigation {
+      margin: 30px 0;
+    }
+
+    .dropdown {
+      display: inline-block;
+      margin: 0 10px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      text-align: left;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content p {
+      margin: 10px;
+      color: black;
+    }
+
+    /* Demo button styling */
+    .demo-button {
+      margin-top: 30px;
+    }
+
+    .demo-button button {
+      background-color: darkblue;
+      border: none;
+      border-radius: 50%; /* Makes it circular */
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .demo-button button:hover {
+      background-color: lightblue;
+      color: darkblue;
+    }
+
   </style>
 </head>
 <body>
   <div class="header">
     <h1>Masada AI</h1>
   </div>
-  
-  <div class="hero-section">
-    <h2>React Faster, Stop Shootings!</h2>
-    <img class="hero-image" src="your_hero_image_url.jpg" alt="Hero Image">
-  </div>
-  
+
   <div class="accuracy-matrix">
     <h3>Accuracy Matrix</h3>
     <div class="matrix-labels">
@@ -30,16 +99,32 @@
       <div class="matrix-label">True Positive (95)</div>
     </div>
   </div>
-  
+
   <div class="navigation">
-    <a class="navigation-link" href="/customers.html">Customers</a>
-    <a class="navigation-link" href="/investors.html">Investors</a>
-    <a class="navigation-link" href="/grants.html">Grants</a>
+    <div class="dropdown">
+      <span>Customers</span>
+      <div class="dropdown-content">
+        <p></p> <!-- Placeholder text for Customers -->
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <span>Investors</span>
+      <div class="dropdown-content">
+        <p></p> <!-- Placeholder text for Investors -->
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <span>Grants</span>
+      <div class="dropdown-content">
+        <p></p> <!-- Placeholder text for Grants -->
+      </div>
+    </div>
   </div>
 
-  <!-- Button to upload a video -->
-  <div class="upload-button">
-    <button onclick="window.location.href='/videoupload.html'">Upload Video</button>
+  <div class="demo-button">
+    <button onclick="window.location.href='/videoupload.html'">Demo</button>
   </div>
 </body>
 </html>
