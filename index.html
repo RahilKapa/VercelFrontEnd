@@ -59,7 +59,6 @@
       border: 1px solid black;
       padding: 10px;
       text-align: center;
-      background-color: white;
     }
 
     th {
@@ -67,8 +66,12 @@
       color: white;
     }
 
-    .metrics-row td {
-      background-color: #808080; /* Grey background for the metrics row */
+    .true-cell {
+      background-color: white;
+    }
+
+    .false-cell {
+      background-color: #808080; /* Grey background for false cells */
       color: white;
     }
 
@@ -117,23 +120,18 @@
     <table>
       <tr>
         <th></th>
-        <th>Metrics</th>
-      </tr>
-      <tr class="metrics-row">
-        <td>True Negative</td>
-        <td>100</td>
+        <th>True</th>
+        <th>False</th>
       </tr>
       <tr>
-        <td>False Positive</td>
-        <td>0</td>
-      </tr>
-      <tr class="metrics-row">
-        <td>False Negative</td>
-        <td>5</td>
+        <th>Positive</th>
+        <td class="true-cell">95</td>
+        <td class="false-cell">0</td>
       </tr>
       <tr>
-        <td>True Positive</td>
-        <td>95</td>
+        <th>Negative</th>
+        <td class="false-cell">5</td>
+        <td class="true-cell">100</td>
       </tr>
     </table>
   </div>
