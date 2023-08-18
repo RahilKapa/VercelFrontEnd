@@ -1,141 +1,159 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Masada AI</title>
-    <style>
-        body {
-            background-color: #e6f7ff; /* Set light blue background */
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+  <title>Masada AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #e6f7ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
 
-        .header {
-            background-color: black; /* Black background for the header */
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .header {
+      background-color: black;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .header h1 {
-            color: white;
-            margin: 0;
-            font-size: 2.5em;
-            margin-left: 10px;
-        }
+    .header h1 {
+      font-family: 'Montserrat', sans-serif; /* Use the custom font 'Montserrat' */
+      color: white;
+      margin: 0;
+      font-size: 2.5em;
+      margin-left: 10px;
+    }
 
-        button.demo-button {
-            background-color: #001f3f;
-            border: none;
-            border-radius: 20px;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-        }
+    button.demo-button {
+      background-color: #001f3f;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
 
-        button.demo-button:hover {
-            background-color: #003366;
-        }
+    button.demo-button:hover {
+      background-color: #003366;
+    }
 
-        .accuracy-matrix {
-            margin-top: 20px;
-        }
+    .accuracy-matrix {
+      margin-top: 20px;
+    }
 
-        table {
-            border-collapse: collapse;
-            width: 50%;
-            margin: 0 auto;
-        }
+    table {
+      border-collapse: collapse;
+      width: 70%;
+      margin: 0 auto;
+      background-color: #f2f2f2;
+    }
 
-        table, th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+      background-color: white;
+    }
 
-        .navigation {
-            margin: 30px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    th {
+      background-color: #404040;
+      color: white;
+    }
 
-        .dropdown {
-            margin: 10px 0;
-            position: relative;
-            cursor: pointer;
-        }
+    .navigation {
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 150px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            text-align: left;
-        }
+    .dropdown {
+      margin: 10px 0;
+      position: relative;
+      cursor: pointer;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      text-align: left;
+    }
 
-        .dropdown-content p {
-            margin: 10px;
-            color: black;
-        }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-    </style>
+    .dropdown-content p {
+      margin: 10px;
+      color: black;
+    }
+
+  </style>
 </head>
-
 <body>
-    <div class="header">
-        <h1>Masada AI</h1>
-        <button class="demo-button" onclick="window.location.href='/videoupload.html'">Demo</button>
+  <div class="header">
+    <h1>Masada AI</h1>
+    <button class="demo-button" onclick="window.location.href='/videoupload.html'">Demo</button>
+  </div>
+
+  <div class="accuracy-matrix">
+    <h3>Accuracy Matrix</h3>
+    <p>After going through our two-factor authentication system of both RAM and one-shot Grounding DINO.</p>
+    <table>
+      <tr>
+        <th>Metrics</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>True Negative</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>False Positive</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>False Negative</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>True Positive</td>
+        <td>95</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="navigation">
+    <div class="dropdown">
+      <span>Customers</span>
+      <div class="dropdown-content">
+        <p></p>
+      </div>
     </div>
 
-    <div class="accuracy-matrix">
-        <h3>Accuracy Matrix</h3>
-        <p>After going through our two-factor authentication system of both RAM and one-shot Grounding DINO.</p>
-        <table>
-            <tr>
-                <td>True Negative (100)</td>
-                <td>False Positive (0)</td>
-            </tr>
-            <tr>
-                <td>False Negative (5)</td>
-                <td>True Positive (95)</td>
-            </tr>
-        </table>
+    <div class="dropdown">
+      <span>Investors</span>
+      <div class="dropdown-content">
+        <p></p>
+      </div>
     </div>
 
-    <div class="navigation">
-        <div class="dropdown">
-            <span>Customers</span>
-            <div class="dropdown-content">
-                <p></p>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <span>Investors</span>
-            <div class="dropdown-content">
-                <p></p>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <span>Grants</span>
-            <div class="dropdown-content">
-                <p></p>
-            </div>
-        </div>
+    <div class="dropdown">
+      <span>Grants</span>
+      <div class="dropdown-content">
+        <p></p>
+      </div>
     </div>
+  </div>
 </body>
-
 </html>
